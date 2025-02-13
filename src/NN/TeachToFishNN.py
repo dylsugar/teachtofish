@@ -5,9 +5,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 class TTFNN:
-    def __init__(self):
-        self.normalized_training_data = None
-        self.testing_data = None
+    def __init__(self, created_training_data, created_testing_data):
+        self.normalized_training_data = self._normalize(created_training_data)
+        self.testing_data = created_testing_data
         self.model = None
 
     def train_existing_TTFNN(self):
@@ -35,12 +35,6 @@ class TTFNN:
         # Evaluate the model on the test set
         loss, accuracy = model.evaluate(X_test, y_test)
         print(f"Test Accuracy: {accuracy:.4f}")
-
-    def set_training_data(self, created_training_data):
-        self.training_data = self._normalize(created_training_data)
-
-    def set_testing_data(self, created_testing_data):
-        self.testing_data = created_testing_data
 
     def _normalize(self, training_data):
         # Normalize the data

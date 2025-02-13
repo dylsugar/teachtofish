@@ -167,11 +167,26 @@ CASHFLOW_KEY_INDICATORS = [
     "Net Income From Continuing Operations",
 ]
 
+SMALL_CAP_TEST_TICKERS = [
+    "ACMR",
+    "PUBM",
+    "HLIT",
+    "GCT",
+]
+
+MED_CAP_TEST_TICKERS = [
+    "SNX",
+    "ONTO",
+    "DBX",
+    "DOX",
+    "MTSI"
+]
+
 class StockDictionaryStorage:
     def __init__(self):
         self.stockdict = {}
 
-    def set_liquidity_ratio(self, singleStockData):
+    def add_liquidity_ratio(self, singleStockData):
         self._storage_update(self, "Liquidity", self._liquidity_ratio_calc(singleStockData))
 
     def add_debt_to_equity_ratio(self, singleStockData):
