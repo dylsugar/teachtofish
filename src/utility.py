@@ -187,16 +187,16 @@ class StockDictionaryStorage:
         self.stockdict = {}
 
     def add_liquidity_ratio(self, singleStockData):
-        self._storage_update(self, "Liquidity", self._liquidity_ratio_calc(singleStockData))
+        self._storage_update("Liquidity", self._liquidity_ratio_calc(singleStockData))
 
     def add_debt_to_equity_ratio(self, singleStockData):
-        self._storage_update(self, "DebtToEquity", self._debt_to_equity_ratio_calc(singleStockData))
+        self._storage_update("DebtToEquity", self._debt_to_equity_ratio_calc(singleStockData))
 
     def add_return_on_equity_ratio(self, singleStockData):
-        self._storage_update(self, "ReturnOnEquity", self._return_on_equity_ratio_calc(singleStockData))
+        self._storage_update("ReturnOnEquity", self._return_on_equity_ratio_calc(singleStockData))
 
     def add_operating_cashflow(self, singleStockData):
-        self._storage_update(self, "OperatingCashflow", self._search_key_return_value(singleStockData, "Operating Cash Flow"))
+        self._storage_update("OperatingCashflow", self._search_key_return_value(singleStockData, "Operating Cash Flow"))
     
     def _storage_update(self, analysis_string, setValue):
         return self.stockdict.setdefault(self.stockticker, {}).update({analysis_string: setValue})

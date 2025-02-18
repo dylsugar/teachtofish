@@ -40,5 +40,6 @@ class TTFNN:
         # Normalize the data
         scaler = StandardScaler()
         return scaler.fit_transform(training_data)
-
+    
+    
 
